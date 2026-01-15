@@ -257,34 +257,38 @@ body {
     100% { transform: translateX(-100%); }
 }
 
-/* Table - Removed cell borders */
+/* Table Styling */
 .info-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px;
+    border-collapse: collapse; /* Changed to collapse to allow borders like the image */
+    margin-top: 10px;
     font-size: 0.9rem;
+    border: 1px solid #444; /* Subtle outer border */
 }
 
 .info-table td {
     padding: 12px;
-    border-radius: 8px;
+    border: 1px solid #444; /* Creates the grid lines seen in your image */
 }
 
-/* Left column */
+/* Left column (Labels: Site Name, Games, etc.) */
 .info-table tr td:first-child {
-    background: #ffffff;
-    color: #000000;
+    background: #999999; /* Gray background from image */
+    color: #000000;      /* Black text */
     font-weight: bold;
-    width: 40%;
-    border: none;
+    width: 35%;
 }
 
-/* Right column */
+/* Right column (Data: KHWIN88, $1, etc.) */
 .info-table tr td:last-child {
-    background: #ffffff;
-    color: #000000;
+    background: #ffffff; /* White background */
+    color: #000000;      /* Black text */
     font-weight: bold;
-    border: none;
+}
+
+/* Alternating row color for the right side to match image */
+.info-table tr:nth-child(even) td:last-child {
+    background: #e0e0e0; /* Light gray for even rows */
 }
 
 /* RTP BAR - Minimalist */
