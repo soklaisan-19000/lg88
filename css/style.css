@@ -292,16 +292,30 @@ body {
 }
 
 /* RTP BAR - Minimalist */
+.rtp-text {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #000; /* Keep black if the bar is gold */
+    line-height: 12px; /* Must match the height of .rtp-container */
+    z-index: 2;
+}
+
+/* Ensure the container has a high enough z-index */
 .rtp-container {
     position: absolute;
     bottom: 8px;
     left: 8px;
     right: 8px;
-    height: 12px;
-    background: #000;
+    height: 14px; /* Slightly taller for better visibility */
+    background: #222; /* Darker background for the empty part */
     border-radius: 20px;
     overflow: hidden;
-    border: 1px solid #222;
+    border: 1px solid #444;
 }
 
 .rtp-bar {
@@ -309,15 +323,6 @@ body {
     background: linear-gradient(90deg, #ffcc00, #c9a200);
 }
 
-.rtp-text {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    font-size: 10px;
-    font-weight: bold;
-    color: #000;
-    line-height: 12px;
-}
 
 /* GAME NAME - Removed border */
 .game-name {
