@@ -340,6 +340,10 @@ body {
 }
 
 /* --- BOTTOM NAVIGATION --- */
+:root {
+    --primary-gold: #ffcc00; /* Define gold if not already defined */
+}
+
 .bottom-nav {
     position: fixed;
     bottom: 0;
@@ -350,10 +354,8 @@ body {
     justify-content: space-around;
     align-items: center;
     z-index: 1000;
-    /* Clean separation from content without a gold line */
-    border-radius: 10px;
-    /* ADDED GOLD BORDER */
-    border-top: 2px solid var(--primary-gold); 
+    border-radius: 10px 10px 0 0;
+    border-top: 2px solid var(--primary-gold);
 }
 
 .nav-item {
@@ -365,6 +367,7 @@ body {
     flex-direction: column;
     align-items: center;
     transition: color 0.3s ease;
+    flex: 1; /* Ensures equal spacing for side logos */
 }
 
 .nav-item i {
@@ -372,7 +375,6 @@ body {
     margin-bottom: 4px;
 }
 
-/* Active or Hover State */
 .nav-item:hover, .nav-item.active {
     color: var(--primary-gold);
 }
@@ -380,59 +382,66 @@ body {
 /* --- CENTER REGISTER BUTTON --- */
 .center-register {
     position: relative;
-    top: -25px; /* Lift it above the bar */
+    /* Lift the container high enough so the 200px circle doesn't hide text */
+    top: -45px; 
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1100;
+    overflow: visible;
 }
 
 .register-circle {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
+    width: 150px; /* Your requested size */
+    height: 150px; /* Reduced height slightly to keep text visible */
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 5px;
     
-    /* FAST ANIMATION: 0.8 seconds per loop */
+    /* FAST ANIMATION */
     animation: animate__tada 0.8s infinite;
     transform-origin: center;
-}
-
-@keyframes animate__tada {
-  from {
-    transform: scale3d(1, 1, 1);
-  }
-
-  10%, 20% {
-    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
-  }
-
-  30%, 50%, 70%, 90% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
-  }
-
-  40%, 60%, 80% {
-    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
-  }
-
-  to {
-    transform: scale3d(1, 1, 1);
-  }
+    margin-bottom: 5px;
 }
 
 .register-circle img {
     width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: contain;
+    backface-visibility: hidden; 
+    filter: drop-shadow(0px 5px 15px rgba(0,0,0,0.5)); /* Adds depth */
 }
 
-/* Text under the circle */
-.center-register span {
-    
+/* Specific text fix for the Register label */
+.register-text {
+    display: block;
+    /* color: var(--primary-gold) !important; */
     font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-top: -25px; /* Pulls text up toward the giant logo */
+    text-shadow: 2px 2px 5px #000;
 }
 
-
+/* --- TADA ANIMATION --- */
+@keyframes animate__tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+    transform: scale3d(0.9, 0.9, 0.9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
 /* INFO BOX - Removed shadows and background frame */
 .info-box {
     margin: 20px;
