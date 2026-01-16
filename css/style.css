@@ -140,16 +140,18 @@ body {
     margin-top: 70px;
     padding: 10px;
     background: #000;
-    border-bottom: none;
+    display: flex;         /* Helps with centering */
+    justify-content: center;
 }
 
 .promo-img {
     width: 100%;
-    object-fit: cover;
-    border-radius: 15px;
-    box-shadow: none;
+    height: auto;          /* Maintains the correct aspect ratio */
+    max-width: 100%;       /* Prevents the image from being blurry by over-stretching */
+    display: block;
+    /* border-radius: 15px; */
+    image-rendering: -webkit-optimize-contrast; /* Sharpens edges in some browsers */
 }
-
 /* INFO SECTION - Removed gold frame and glow */
 .info-container {
     margin: 20px;
@@ -166,7 +168,7 @@ body {
     text-align: center;
     padding: 12px;
     font-weight: bold;
-    border-radius: 30px;
+    border-radius: 10px;
     margin-bottom: 15px;
     border: none;
 }
@@ -385,7 +387,8 @@ body {
 .register-circle {
     width: 65px;
     height: 65px;
-    background: var(--primary-gold);
+    /* background: var(--primary-gold); */
+    
     border-radius: 50%;
     display: flex;
     justify-content: center;
